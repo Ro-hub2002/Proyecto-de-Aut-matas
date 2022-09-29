@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Autómatas Gramaticales</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.3/minty/bootstrap.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"
+    ></script>
+  </head>
+  <body>
+    <div class="contacto">
+      <div>
+        <h1>Autómatas Gramaticales</h1>
+        <br />
+        <h3>Recolección de datos del estudiante</h3>
+
+        <form action="" class="formulario" id="formulario">
+          <!--Parte: Nombre-->
+          <div class="formulario_parte">
+            <label for="nombre" class="formulario_label"
+              >Nombre del estudiante
+            </label>
+            <input
+              type="text"
+              class="formulario_input"
+              name="nombre"
+              id="nombre"
+              required="obligatorio"
+              placeholder="Escribe tu nombre"
+            />
+            <br />
+          </div>
+          <br />
+
+          <!--Parte: Código-->
+          <div class="formulario_parte">
+            <label for="codigo" class="formulario_label"
+              >Código estudiante
+            </label>
+            <input
+              type="number"
+              class="formulario_input"
+              name="codigo"
+              id="codigo"
+              required="obligatorio"
+              placeholder="Escribe tu código"
+            />
+            <br />
+          </div>
+          <br />
+
+          <!--Parte: Fecha-->
+          <div class="formulario_parte">
+            <label for="fecha" class="formulario_label"
+              >Fecha de Ingreso
+            </label>
+            <input
+              type="date"
+              class="formulario_input"
+              name="fecha"
+              id="fecha"
+              required="obligatorio"
+              placeholder="Escribe tu fecha de ingreso"
+            />
+            <br />
+          </div>
+          <br />
+
+          <!--Parte: Dirección-->
+          <div class="formulario_parte">
+            <label for="direccion" class="formulario_label">Dirección </label>
+            <input
+              type="text"
+              class="formulario_input"
+              name="direccion"
+              id="direccion"
+              required="obligatorio"
+              placeholder="Escribe tu dirreción"
+            />
+            <br />
+          </div>
+          <br />
+
+          <!--Parte: Teléfono fijo-->
+          <div class="formulario_parte">
+            <label for="telefono_fijo" class="formulario_label"
+              >Teléfono fijo
+            </label>
+            <input
+              type="number"
+              class="formulario_input"
+              name="telefono_fijo"
+              id="telefono_fijo"
+              required="obligatorio"
+              placeholder="Escribe tu teléfono fijo"
+            />
+            <br />
+          </div>
+          <br />
+
+          <!--Parte: Teléfono-->
+          <div class="formulario_parte">
+            <label for="telefono" class="formulario_label"
+              >Teléfono celular
+            </label>
+            <input
+              type="number"
+              class="formulario_input"
+              name="telefono"
+              id="telefono"
+              required="obligatorio"
+              placeholder="Escribe tu teléfono personal"
+            />
+            <br />
+          </div>
+          <br />
+
+          <!--Parte: Email-->
+          <div class="formulario_parte">
+            <label for="email" class="formulario_label">Email </label>
+            <input
+              type="text"
+              class="formulario_input"
+              name="email"
+              id="email"
+              required="obligatorio"
+              placeholder="Escribe tu email"
+            />
+            <br />
+          </div>
+          <br />
+
+          <!--Aqui van los botones-->
+          <div class="formulario__grupo formulario__grupo-btn-enviar">
+            <button type="submit" class="formulario__btn">Enviar</button><br />
+          </div>
+          <br />
+
+          <button
+            onclick="ExportToExcel('xlsx', 'Estudiantes')"
+            type="button"
+            class="formulario__btn"
+            name="exportar_formulario"
+            id="exportar"
+          >
+            Exportar
+          </button>
+
+          <button
+            type="button"
+            class="formulario__btn"
+            name="importar_formulario"
+            id="importar"
+          >
+            Importar
+          </button>
+
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+
+          <h1 align="left">Datos personales del estudiante</h1>
+          <table id="tabla" class="tabla-responsive">
+            <tr>
+              <th>Nombre</th>
+              <th>Código</th>
+              <th>Fecha</th>
+              <th>Dirección</th>
+              <th>Teléfono fijo</th>
+              <th>Teléfono celular</th>
+              <th>Email</th>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+    <input
+      type="file"
+      id="file"
+      hidden
+      accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    />
+    <!--Aqui vinculamos el formulario con JavaScript y otros componentes-->
+    <script src="app.js"></script>
+    <script src="excel.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="alert.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js"
+      integrity="sha512-XmZS54be9JGMZjf+zk61JZaLZyjTRgs41JLSmx5QlIP5F+sSGIyzD2eJyxD4K6kGGr7AsVhaitzZ2WTfzpsQzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://gitcdn.xyz/repo/FuriosoJack/TableHTMLExport/v1.0.0/src/tableHTMLExport.js"></script>
+    <script src="exportar.js"></script>
+  </body>
+</html>
